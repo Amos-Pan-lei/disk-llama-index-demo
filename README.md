@@ -13,9 +13,11 @@ pip3 install -r openai llama-index tiktoken
 
 ## 运行
 
+
 #### 在代码中填入API key，或者设置环境变量
 
-win环境
+
+##### win环境
 
 ```powershell
 $env:OPENAI_API_KEY="api-key"
