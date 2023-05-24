@@ -4,7 +4,7 @@
 ### 安装依赖
 
 ```shell
-pip3 install -r openai llama-index tiktoken
+pip3 install openai llama-index tiktoken
 ```
 
  

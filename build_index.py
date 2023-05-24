@@ -1,6 +1,6 @@
 import logging
 import sys
-from llama_index import SimpleDirectoryReader, GPTSimpleVectorIndex 
+from llama_index import SimpleDirectoryReader, GPTVectorStoreIndex 
 
 logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 logging.getLogger().addHandler(logging.StreamHandler(stream=sys.stdout))
@@ -11,12 +11,9 @@ documents = SimpleDirectoryReader('data').load_data()
 # 按最大token数500来把原文档切分为多个小的chunk，每个chunk转为向量，并构建索引
  
 
+index = GPTVectorStoreIndex.from_documents(documents)
 
-index = GPTSimpleVectorIndex.from_documents(documents)
 # 保存索引
-index.save_to_disk('index.json')
+index.storage_context.persist(persist_dir='./index/mks')
 
-
-# response = index.query("What did the author do growing up?")
-# print(response)
 
